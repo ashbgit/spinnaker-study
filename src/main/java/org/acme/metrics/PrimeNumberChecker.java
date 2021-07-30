@@ -5,6 +5,12 @@ import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.Gauge;
 import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
+import java.util.concurrent.Future;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Executor;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -44,7 +50,21 @@ public class PrimeNumberChecker {
         if (number > highestPrimeNumberSoFar) {
             highestPrimeNumberSoFar = number;
         }
-        Thread.sleep(500);
+        int iCount = 100, iDelay = 1000;
+        ExecutorService executor = Executors.newCachedThreadPool();
+        List<Future<Integer>> futures = new ArrayList<>(iCount);
+        
+        for (int i =0; i< iCount; i++) {
+            int j = i;
+            futures.add(executor.submit(() -> {
+                    Thread.sleep(iDelay);
+                    return j;
+                }));
+        }
+        for (Future<Integer> e : futures) {
+            e.get();
+        }
+        
         return number + " is prime.";
     }
 
