@@ -65,7 +65,7 @@ public class PrimeNumberChecker {
         for (Future<Integer> e : futures) {
             e.get();
         }*/
-            Thread.sleep(2000);
+            Thread.sleep(30000);
         }
         catch(Exception ex) {
             System.out.println("Dummy Exception handler");
