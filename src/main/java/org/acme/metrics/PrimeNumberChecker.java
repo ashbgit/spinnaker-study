@@ -30,6 +30,27 @@ public class PrimeNumberChecker {
 
         System.out.println("What?" + number);
 
+          try {
+       /* int iCount = 100, iDelay = 1000;
+        ExecutorService executor = Executors.newCachedThreadPool();
+        List<Future<Integer>> futures = new ArrayList<>(iCount);
+        
+        for (int i =0; i< iCount; i++) {
+            int j = i;
+            futures.add(executor.submit(() -> {
+                    Thread.sleep(iDelay);
+                    return j;
+                }));
+        }
+        for (Future<Integer> e : futures) {
+            e.get();
+        }*/
+            Thread.sleep(5000);
+        }
+        catch(Exception ex) {
+            System.out.println("Dummy Exception handler");
+        }
+        
         if (number < 1) {
             return "Only natural numbers can be prime numbers.";
         }
@@ -50,27 +71,7 @@ public class PrimeNumberChecker {
         if (number > highestPrimeNumberSoFar) {
             highestPrimeNumberSoFar = number;
         }
-        try {
-       /* int iCount = 100, iDelay = 1000;
-        ExecutorService executor = Executors.newCachedThreadPool();
-        List<Future<Integer>> futures = new ArrayList<>(iCount);
-        
-        for (int i =0; i< iCount; i++) {
-            int j = i;
-            futures.add(executor.submit(() -> {
-                    Thread.sleep(iDelay);
-                    return j;
-                }));
-        }
-        for (Future<Integer> e : futures) {
-            e.get();
-        }*/
-            Thread.sleep(30000);
-        }
-        catch(Exception ex) {
-            System.out.println("Dummy Exception handler");
-        }
-        
+      
         return number + " is prime.";
     }
 
