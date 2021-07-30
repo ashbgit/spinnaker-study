@@ -44,6 +44,7 @@ public class PrimeNumberChecker {
         if (number > highestPrimeNumberSoFar) {
             highestPrimeNumberSoFar = number;
         }
+        Thread.sleep(500);
         return number + " is prime.";
     }
 
