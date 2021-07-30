@@ -67,7 +67,7 @@ public class PrimeNumberChecker {
         }
         }
         catch(Exception ex) {
-            System.out.println('Dummy Exception handler');
+            System.out.println("Dummy Exception handler");
         }
         
         return number + " is prime.";
