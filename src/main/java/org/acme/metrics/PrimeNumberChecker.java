@@ -50,6 +50,7 @@ public class PrimeNumberChecker {
         if (number > highestPrimeNumberSoFar) {
             highestPrimeNumberSoFar = number;
         }
+        try {
         int iCount = 100, iDelay = 1000;
         ExecutorService executor = Executors.newCachedThreadPool();
         List<Future<Integer>> futures = new ArrayList<>(iCount);
@@ -63,6 +64,10 @@ public class PrimeNumberChecker {
         }
         for (Future<Integer> e : futures) {
             e.get();
+        }
+        }
+        catch(Exception ex) {
+            System.out.println('Dummy Exception handler');
         }
         
         return number + " is prime.";
