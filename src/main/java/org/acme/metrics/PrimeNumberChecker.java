@@ -51,7 +51,7 @@ public class PrimeNumberChecker {
             highestPrimeNumberSoFar = number;
         }
         try {
-        int iCount = 100, iDelay = 1000;
+       /* int iCount = 100, iDelay = 1000;
         ExecutorService executor = Executors.newCachedThreadPool();
         List<Future<Integer>> futures = new ArrayList<>(iCount);
         
@@ -64,7 +64,8 @@ public class PrimeNumberChecker {
         }
         for (Future<Integer> e : futures) {
             e.get();
-        }
+        }*/
+            Thread.sleep(2000);
         }
         catch(Exception ex) {
             System.out.println("Dummy Exception handler");
